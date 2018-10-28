@@ -1,5 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import Inicio from './Inicio';
+import Body from './Body';
+import Final from './Final';
 
 class App extends React.Component {
   constructor() {
@@ -24,21 +27,9 @@ class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.cajaUno}>
-          <Text>Contador</Text>
-        </View>
-        <View style={styles.cajaDos}>
-          <Text> {this.state.numero} </Text>
-          <Text> this.state.numero </Text>
-        </View>
-        <View style={styles.cajaTres}>
-          <Button 
-          title="Aumentar"
-          onPress={ () => { this.aumentar() } }/>
-          <Button 
-          title="Disminuir"
-          onPress={ () => { this.disminuir() } }/>
-        </View>
+        <Inicio name="Calculadora"/>
+        <Body numero={this.state.numero} />
+        <Final sumar={this.aumentar} restar={this.disminuir}/>
       </View>
     );
   }
@@ -49,22 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  cajaUno: {
-    flex: 1,
-    backgroundColor: '#00ff00',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  cajaDos: {
-    flex: 3,
-    backgroundColor: '#90EE90',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  cajaTres: {
-    flex: 1,
-    backgroundColor: '#006400',
-  }
 });
 
+//Lo hacemos visible al resto de clases
 export default App;
